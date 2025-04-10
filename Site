@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Psicodélica Randômica</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(270deg, #ff6ec4, #7873f5, #3edbf0, #ffc93c);
+      background-size: 800% 800%;
+      animation: moveBackground 20s ease infinite;
+      font-family: Arial, sans-serif;
+    }
+
+    @keyframes moveBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    button {
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      background-color: #fff;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <button onclick="changeColor()">Clique-me 😎</button>
+
+  <script>
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function changeColor() {
+      const button = document.querySelector("button");
+      button.style.backgroundColor = getRandomColor();
+      button.style.color = getRandomColor();
+    }
+  </script>
+</body>
+</html>
